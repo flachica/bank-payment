@@ -117,8 +117,9 @@ msgstr ""
 #. module: account_banking_pain_base
 #. odoo-python
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
-msgid "Cannot compute the field '%(field_name)s'."
-msgstr ""
+#, fuzzy
+msgid "Cannot compute the field '{field_name}'."
+msgstr "Das Feld '%s' kann nicht berechnet werden."
 
 #. module: account_banking_pain_base
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__purpose__clpr
@@ -205,14 +206,6 @@ msgid "Consumer Third Party Consolidated Payment"
 msgstr ""
 
 #. module: account_banking_pain_base
-#: model:ir.model.fields,help:account_banking_pain_base.field_account_payment_method__sepa_pain09_address_mode
-msgid ""
-"Controls how the <PstlAdr> block is generated for PAIN.001.001.09- Minimal: "
-"only City (TwnNm) and Country (Ctry)- Hybrid: City/Country plus optional "
-"AdrLine lines (street/street2) and optional Post Code (PstCd) when available."
-msgstr ""
-
-#. module: account_banking_pain_base
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__purpose__cvcf
 msgid "Convalescent Care Facility"
 msgstr ""
@@ -255,8 +248,8 @@ msgstr "Kreditkarten Zahlung"
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
 msgid ""
 "Data for evaluation:\n"
-"\tcontext: %(eval_ctx)s\n"
-"\tfield path: %(field_value)s"
+"\tcontext: {eval_ctx}\n"
+"\tfield path: {field_value}"
 msgstr ""
 
 #. module: account_banking_pain_base
@@ -300,17 +293,6 @@ msgstr ""
 #. module: account_banking_pain_base
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__purpose__deri
 msgid "Derivatives"
-msgstr ""
-
-#. module: account_banking_pain_base
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_line__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_method__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_mode__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_order__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_bank__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_company__display_name
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_config_settings__display_name
-msgid "Display Name"
 msgstr ""
 
 #. module: account_banking_pain_base
@@ -439,22 +421,6 @@ msgstr ""
 #. module: account_banking_pain_base
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__purpose__hstx
 msgid "Housing Tax"
-msgstr ""
-
-#. module: account_banking_pain_base
-#: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_method__sepa_pain09_address_mode__hybrid
-msgid "Hybrid (City/Country + AdrLine)"
-msgstr ""
-
-#. module: account_banking_pain_base
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_line__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_method__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_mode__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_order__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_bank__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_company__id
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_res_config_settings__id
-msgid "ID"
 msgstr ""
 
 #. module: account_banking_pain_base
@@ -621,17 +587,14 @@ msgid "Medical Services"
 msgstr ""
 
 #. module: account_banking_pain_base
-#: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_method__sepa_pain09_address_mode__minimal
-msgid "Minimal (City + Country only)"
-msgstr ""
-
-#. module: account_banking_pain_base
 #. odoo-python
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
 msgid ""
 "Missing 'Initiating Party Issuer' and/or 'Initiating Party Identifier' for "
-"the company '%(company)s'. Both fields must have a value."
+"the company '%s'. Both fields must have a value."
 msgstr ""
+"Fehlende 'Initiierende Partei Aussteller' und / oder 'ID der einleitenden "
+"Partei' für das Unternehmen '%s'. Beide Felder müssen einen Wert haben."
 
 #. module: account_banking_pain_base
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__purpose__msvc
@@ -703,33 +666,21 @@ msgstr "PAIN Verzion"
 #. module: account_banking_pain_base
 #. odoo-python
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
-msgid ""
-"PAIN format %(flavor)s requires City (TwnNm). Partner missing City: %"
-"(partner)s. Please set a City or choose an older PAIN format."
-msgstr ""
-
-#. module: account_banking_pain_base
-#: model:ir.model.fields,field_description:account_banking_pain_base.field_account_payment_method__sepa_pain09_address_mode
-msgid "PAIN.001.001.09 Address Mode"
-msgstr ""
-
-#. module: account_banking_pain_base
-#. odoo-python
-#: code:addons/account_banking_pain_base/models/account_payment_order.py:0
 msgid "Partner name"
 msgstr ""
 
 #. module: account_banking_pain_base
 #. odoo-python
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
-msgid "Partner's bank account is '%(bank)s'."
+msgid "Partner's bank account is '%s'."
 msgstr ""
 
 #. module: account_banking_pain_base
 #. odoo-python
 #: code:addons/account_banking_pain_base/models/account_payment_order.py:0
-msgid "Payment Line has reference '%(ref)s'."
-msgstr ""
+#, fuzzy
+msgid "Payment Line has reference '%s'."
+msgstr "Das 'Referenz '%s'berechnet werden."
 
 #. module: account_banking_pain_base
 #: model:ir.model,name:account_banking_pain_base.model_account_payment_line
@@ -933,9 +884,9 @@ msgstr "Das '%s' ist leer oder 0. Es sollte einen Nicht-Null-Wert haben."
 #: code:addons/account_banking_pain_base/models/res_bank.py:0
 msgid ""
 "The following Bank Identifier Codes (BIC) do not respect the SEPA pattern:\n"
-"%(bic_list)s\n"
+"{bic_list}\n"
 "\n"
-"SEPA pattern: %(sepa_pattern)s"
+"SEPA pattern: {sepa_pattern}"
 msgstr ""
 
 #. module: account_banking_pain_base
@@ -945,8 +896,12 @@ msgid ""
 "The generated XML file is not valid against the official XML Schema "
 "Definition. The generated XML file and the full error have been written in "
 "the server logs. Here is the error, which may give you an idea on the cause "
-"of the problem : %(error)s"
+"of the problem : %s"
 msgstr ""
+"Die generierte XML-Datei ist nicht gültig für die offizielle XML-"
+"Schemadefinition. Die generierte XML-Datei und der vollständige Fehler "
+"wurden in die Serverprotokolle geschrieben. Hier ist der Fehler, der Ihnen "
+"eine Idee über die Ursache des Problems geben kann: %s"
 
 #. module: account_banking_pain_base
 #. odoo-python
@@ -1115,32 +1070,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:account_banking_pain_base.selection__account_payment_line__category_purpose__epay
 msgid "ePayment"
 msgstr "elektronische Zahlung"
-
-#, fuzzy
-#~ msgid "Cannot compute the field '{field_name}'."
-#~ msgstr "Das Feld '%s' kann nicht berechnet werden."
-
-#~ msgid ""
-#~ "Missing 'Initiating Party Issuer' and/or 'Initiating Party Identifier' "
-#~ "for the company '%s'. Both fields must have a value."
-#~ msgstr ""
-#~ "Fehlende 'Initiierende Partei Aussteller' und / oder 'ID der einleitenden "
-#~ "Partei' für das Unternehmen '%s'. Beide Felder müssen einen Wert haben."
-
-#, fuzzy
-#~ msgid "Payment Line has reference '%s'."
-#~ msgstr "Das 'Referenz '%s'berechnet werden."
-
-#~ msgid ""
-#~ "The generated XML file is not valid against the official XML Schema "
-#~ "Definition. The generated XML file and the full error have been written "
-#~ "in the server logs. Here is the error, which may give you an idea on the "
-#~ "cause of the problem : %s"
-#~ msgstr ""
-#~ "Die generierte XML-Datei ist nicht gültig für die offizielle XML-"
-#~ "Schemadefinition. Die generierte XML-Datei und der vollständige Fehler "
-#~ "wurden in die Serverprotokolle geschrieben. Hier ist der Fehler, der "
-#~ "Ihnen eine Idee über die Ursache des Problems geben kann: %s"
 
 #~ msgid "Bank Payment Lines"
 #~ msgstr "Bankzahlungszeilen"
