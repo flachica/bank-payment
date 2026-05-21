@@ -1,6 +1,5 @@
 # Copyright 2010-2020 Akretion (www.akretion.com)
 # Copyright 2014-2022 Tecnativa - Pedro M. Baeza
-# Copyright 2026 Therp BV <https://therp.nl>.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from lxml import etree
@@ -47,10 +46,6 @@ class AccountPaymentOrder(models.Model):
             name_maxsize = 140
             root_xml_tag = "CstmrCdtTrfInitn"
         elif pain_flavor.startswith("pain.001.001.05"):
-            bic_xml_tag = "BICFI"
-            name_maxsize = 140
-            root_xml_tag = "CstmrCdtTrfInitn"
-        elif pain_flavor.startswith("pain.001.001.09"):
             bic_xml_tag = "BICFI"
             name_maxsize = 140
             root_xml_tag = "CstmrCdtTrfInitn"
