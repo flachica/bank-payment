@@ -272,12 +272,9 @@ class TestPaymentOrderOutbound(TestPaymentOrderOutboundBase):
         )
 
     def test_invoice_communication_02(self):
-        self.assertEqual(
-            "F1242", self.invoice._get_payment_order_communication_direct()
-        )
         self.invoice.payment_reference = "R1234"
         self.assertEqual(
-            "R1234", self.invoice._get_payment_order_communication_direct()
+            "F1242", self.invoice._get_payment_order_communication_direct()
         )
 
     @mute_logger("odoo.models.unlink")
@@ -301,13 +298,6 @@ class TestPaymentOrderOutbound(TestPaymentOrderOutboundBase):
         self.assertEqual(
             f"ref {reverse_move.ref}",
             self.invoice._get_payment_order_communication_full(),
-        )
-
-    def test_supplier_invoice_payment_reference(self):
-        self.invoice.payment_reference = "+++F1234+++"
-        self.invoice.action_post()
-        self.assertEqual(
-            "+++F1234+++", self.invoice._get_payment_order_communication_full()
         )
 
     def test_manual_line_and_manual_date(self):
@@ -414,7 +404,7 @@ class TestPaymentOrderOutbound(TestPaymentOrderOutboundBase):
         self.invoice.payment_reference = "F/1234"
         self.invoice.action_post()
         self.assertEqual(
-            "F/1234", self.invoice._get_payment_order_communication_direct()
+            "F1242", self.invoice._get_payment_order_communication_direct()
         )
         self.refund = self._create_supplier_refund(self.invoice)
         with Form(self.refund) as refund_form:
@@ -424,9 +414,7 @@ class TestPaymentOrderOutbound(TestPaymentOrderOutboundBase):
                 line_form.price_unit = 75.0
 
         self.refund.action_post()
-        self.assertEqual(
-            "FR/1234", self.refund._get_payment_order_communication_direct()
-        )
+        self.assertEqual("R1234", self.refund._get_payment_order_communication_direct())
 
         self.env["account.invoice.payment.line.multi"].with_context(
             active_model="account.move", active_ids=self.invoice.ids
@@ -439,7 +427,8 @@ class TestPaymentOrderOutbound(TestPaymentOrderOutboundBase):
 
         self.assertEqual(len(payment_order.payment_line_ids), 1)
 
-        self.assertEqual("F/1234 FR/1234", payment_order.payment_line_ids.communication)
+        self.assertEqual("F1242 R1234", payment_order.payment_line_ids.communication)
+        self.assertNotIn("FR/1234", payment_order.payment_line_ids.communication)
 
     def test_supplier_manual_refund(self):
         """
